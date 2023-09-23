@@ -82,7 +82,7 @@ export default function Page() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                  {podcasts.map((person) => (
+                  {podcasts.map((person:any) => (
                     <tr key={person.name}>
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                         {person.title}

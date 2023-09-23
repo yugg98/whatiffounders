@@ -4,14 +4,15 @@ import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Create(e:any) {
+export default function Create() {
+ 
   const [data, setData] = useState({
     title: "",
     description: "", podcastLink: "", imageLink: "",
-    token:localStorage.getItem('token')
+    token:""
   });
   const handleSubmit = () => {
-    axios.post('http://localhost:8000/api/v1/podcast/create',data)
+    axios.post('http://localhost:8000/api/v1/podcast/create',{...data,token:localStorage.getItem("token")})
     .then(res=>console.log(res))
     .catch(err=>console.log(err))
     console.log('hello')

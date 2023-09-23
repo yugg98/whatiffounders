@@ -7,7 +7,7 @@ export const authentication = (email:string,password:string) => {
     return ""
 }
 export const checkAuth = () => {
-    if(token===localStorage.getItem("token")){
+    if(token===window.localStorage.getItem("token")){
         console.log(token)
         return true
     }
