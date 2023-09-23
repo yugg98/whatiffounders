@@ -115,7 +115,7 @@ export default function Example() {
             <div className="hidden  lg:col-span-3 lg:block xl:col-span-2 border-r-2 border-black">
               <nav aria-label="Sidebar" className="sticky top-4 divide-y divide-gray-300">
                 <div className="space-y-1 pb-8">
-                  {navigation.map((item) => (
+                  {navigation.map((item:any) => (
                     <a
                       key={item.name}
                       href={item.href}
@@ -148,7 +148,6 @@ export default function Example() {
                   <select
                     id="question-tabs"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-rose-500"
-                    defaultValue={tabs.find((tab) => tab.current).name}
                   >
                     {tabs.map((tab) => (
                       <option key={tab.name}>{tab.name}</option>
