@@ -16,12 +16,16 @@ app.use(express.json());
 // Route Imports
 const newsRoute = require("./routes/newsRoute");
 const podcastReccomendationRoute = require("./routes/podcastRoute");
+const productRoute = require("./routes/productRoute");
+
 
 
 
 
 app.use("/api/v1", podcastReccomendationRoute);
 app.use("/api/v1", newsRoute);
+app.use("/api/v1", productRoute);
+
 
 app.use(express.static(path.join(__dirname, "../client/out")));
 

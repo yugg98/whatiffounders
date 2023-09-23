@@ -9,17 +9,16 @@ export default function State({
 }: {
   children: React.ReactNode;
 }) {
-  const [status,setStatus] = useState(false)
+  const [status,setStatus] = useState(true)
   useEffect(() => {
-    const token =  localStorage.getItem("token")
-    setStatus(checkAuth(token))
+    setStatus(checkAuth)
     console.log(status)
   }, []);
   return (
    <div>
-        {status==true ?
+        {status ?
             <Sidebar children={children} />
-        : <Login/>}
+        :<Login/>}
     </div>
   );
 }

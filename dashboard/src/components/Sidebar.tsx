@@ -12,16 +12,19 @@ import {
   DocumentDuplicateIcon,
   FolderIcon,
   HomeIcon,
+  MicrophoneIcon,
   NewspaperIcon,
   UsersIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 
 const navigation = [
   { name: 'News', href: '/', icon: NewspaperIcon, current: true },
   { name: 'Products', href: '/products', icon: ComputerDesktopIcon, current: false },
   { name: 'Events', href: '/events', icon: CalendarDaysIcon, current: false },
+  { name: 'Podcast', href: '/podcasts', icon: MicrophoneIcon, current: false },
 ]
 const teams = [
   { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
@@ -103,7 +106,7 @@ export default function State({
                           <ul role="list" className="-mx-2 space-y-1">
                             {navigation.map((item) => (
                               <li key={item.name}>
-                                <a
+                                <Link
                                   href={item.href}
                                   className={classNames(
                                     item.current
@@ -120,7 +123,7 @@ export default function State({
                                     aria-hidden="true"
                                   />
                                   {item.name}
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
@@ -164,7 +167,7 @@ export default function State({
                   <ul role="list" className="-mx-2 space-y-1">
                     {navigation.map((item) => (
                       <li key={item.name}>
-                        <a
+                        <Link
                           href={item.href}
                           className={classNames(
                             item.current
@@ -181,7 +184,7 @@ export default function State({
                             aria-hidden="true"
                           />
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -269,7 +272,7 @@ export default function State({
                       {userNavigation.map((item) => (
                         <Menu.Item key={item.name}>
                           {({ active }) => (
-                            <a
+                            <Link
                               href={item.href}
                               className={classNames(
                                 active ? 'bg-gray-50' : '',
@@ -277,7 +280,7 @@ export default function State({
                               )}
                             >
                               {item.name}
-                            </a>
+                            </Link>
                           )}
                         </Menu.Item>
                       ))}
