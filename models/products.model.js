@@ -24,11 +24,7 @@ const products = new mongoose.Schema({
     type: String,
     require: true,
   },
-  likes: [
-    {
-      type: ObjectId,
-    },
-  ],
+  
   createdAt: {
     type: Date,
     default: Date.now(),

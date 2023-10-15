@@ -2,11 +2,10 @@ const newsDb = require("../models/news.model");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 exports.createNews = catchAsyncErrors(async (req, res, next) => {
-  const {title, description,podcastLink,imageLink,tags,refferedLink} = req.body;
+  const {title, description,imageLink,tags,refferedLink} = req.body;
   const news = await newsDb.create({
     title,
     description,
-    podcastLink,
     imageLink,
     tags,
     refferedLink

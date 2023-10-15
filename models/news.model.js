@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const ObjectId = mongoose.Schema.Types.ObjectId
 const news = new mongoose.Schema({
     title:{
         type:String,
@@ -18,7 +18,7 @@ const news = new mongoose.Schema({
             }
         ],
     },
-    imgUrl:{
+    imageLink:{
         type:String,
         required: true,
     },
@@ -29,6 +29,11 @@ const news = new mongoose.Schema({
     createdAt:{
         type:Date,
         default:Date.now(),
+    },
+    category:{
+        type:ObjectId,
+        ref:"category",
+        // required:true,
     }
 });
 
