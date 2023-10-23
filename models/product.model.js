@@ -13,14 +13,14 @@ const products = new mongoose.Schema({
     xLink: String,
     tagline: String,
   },
-  image: {
+  productImage: {
     type: String,
   },
-  desc: {
+  description: {
     type: String,
     require: true,
   },
-  link: {
+  productLink: {
     type: String,
     require: true,
   },

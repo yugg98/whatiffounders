@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const ObjectId = mongoose.Schema.Types.ObjectId
 
 
 const podcastReccomendation = new mongoose.Schema({
@@ -19,6 +20,11 @@ const podcastReccomendation = new mongoose.Schema({
     imageLink : {
         type:"String",
         required: true,
+    },
+    category:{
+        type:ObjectId,
+        ref:"category",
+        required:true,
     },
     createdAt : {
         type:"Date",

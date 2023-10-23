@@ -17,14 +17,16 @@ app.use(express.json());
 const newsRoute = require("./routes/newsRoute");
 const podcastReccomendationRoute = require("./routes/podcastRoute");
 const productRoute = require("./routes/productRoute");
-
-
-
+const categoryRoute = require("./routes/categoryRoute");
+const eventRoute = require("./routes/eventsRoute");
 
 
 app.use("/api/v1", podcastReccomendationRoute);
 app.use("/api/v1", newsRoute);
+app.use("/api/v1", categoryRoute);
 app.use("/api/v1", productRoute);
+app.use("/api/v1", eventRoute);
+
 
 
 app.use(express.static(path.join(__dirname, "../client/out")));

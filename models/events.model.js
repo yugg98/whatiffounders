@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const ObjectId = mongoose.Schema.Types.ObjectId
-const news = new mongoose.Schema({
-    title:{
+const events = new mongoose.Schema({
+    name:{
         type:String,
         minLenght: 3,
         required: true,
@@ -30,7 +30,7 @@ const news = new mongoose.Schema({
         type:Date,
         default:Date.now(),
     },
-    refferedLink:{
+    eventLink:{
         type:String,
         required: true,
     },
@@ -41,4 +41,4 @@ const news = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("news", news);
+module.exports = mongoose.model("events", events);
