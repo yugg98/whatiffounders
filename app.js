@@ -35,9 +35,11 @@ app.use("/api/v1", homeRoute);
 
 app.use(express.static(path.join(__dirname, "../client/out")));
 
-// app.get('*',(req,res)=>{
-//   res.sendFile(path.resolve(__dirname, "../client/out/index.html"));
-// })
+app.get('*',(req,res)=>{
+  res.status(200).json({
+    message:"Hello Guys"
+  })
+})
 
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
