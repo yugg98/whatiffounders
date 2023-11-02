@@ -2,7 +2,7 @@ const eventsDb = require("../models/events.model");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 exports.createEvents = catchAsyncErrors(async (req, res, next) => {
-  const {name, description,imageLink,tags,eventLink,category} = req.body;
+  const {name, description,imageLink,tags,eventLink,location,timing ,category} = req.body;
   const events = await eventsDb.create({
     name,
     description,

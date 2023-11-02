@@ -38,6 +38,14 @@ const events = new mongoose.Schema({
         type:ObjectId,
         ref:"category",
         required:true,
+    },
+    location:{
+        type:String,
+        required: true,
+    },
+    timing:{
+        type:String,
+        required: true,
     }
 });
 

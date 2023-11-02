@@ -38,7 +38,6 @@ exports.deleteNews = catchAsyncErrors(async (req, res, next) => {
 
 exports.getNews = catchAsyncErrors(async (req, res, next) => {
   const news = await newsDb.find({}).sort({createdAt:-1});
-  console.log("hello")
   res.status(201).json({
     success: true,
     message: "News Delivered successfully",
