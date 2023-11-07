@@ -9,7 +9,9 @@ exports.createEvents = catchAsyncErrors(async (req, res, next) => {
     imageLink,
     tags,
     eventLink,
-    category
+    category,
+    timing,
+    location
   });
   res.status(201).json({
     success: true,
