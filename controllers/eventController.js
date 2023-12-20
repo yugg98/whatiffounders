@@ -2,7 +2,14 @@ const eventsDb = require("../models/events.model");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 exports.createEvents = catchAsyncErrors(async (req, res, next) => {
-  const {name, description,imageLink,tags,eventLink,location,timing ,category} = req.body;
+  const {name, description,imageLink,tags,eventLink,location,timing ,category,isFeatured} = req.body;
+  if(isFeatured){
+    const event = eventsDb.findOneAndUpdate({isFeatured:true},{
+      isFeatured:false
+    })
+  
+  }
+
   const events = await eventsDb.create({
     name,
     description,
@@ -11,7 +18,8 @@ exports.createEvents = catchAsyncErrors(async (req, res, next) => {
     eventLink,
     category,
     timing,
-    location
+    location,
+    isFeatured
   });
   res.status(201).json({
     success: true,

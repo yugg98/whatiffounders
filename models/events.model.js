@@ -46,6 +46,10 @@ const events = new mongoose.Schema({
     timing:{
         type:String,
         required: true,
+    },
+    isFeatured:{
+        type:Boolean,
+        default:false
     }
 });
 
