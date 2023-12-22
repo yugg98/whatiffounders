@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const ObjectId = mongoose.Schema.Types.ObjectId
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const products = new mongoose.Schema({
   name: {
@@ -31,10 +31,12 @@ const products = new mongoose.Schema({
     ref: "category",
     required: true,
   },
-  featured:{
-    status:Boolean,
-    paid:Boolean,
-    position:Number,
+  isFeatured: {
+    type: Boolean,
+    default: false,
+  },
+  isInTopList: {
+    type: Number,
   },
   createdAt: {
     type: Date,

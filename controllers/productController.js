@@ -1,14 +1,16 @@
-const Product = require("../models/product.model");
+const productDb = require("../models/product.model");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
-  const {title, description,productLink,imageLink,category} = req.body;
-  const Product = await Product.create({
-    title,
+  const {name, description,productLink,imageLink,category,isFeatured,isInTopList} = req.body;
+  const Product = await productDb.create({
+    name,
     description,
     productLink,
     imageLink,
-    category
+    category,
+    isFeatured,
+    isInTopList
   });
   res.status(201).json({
     success: true,
@@ -18,16 +20,16 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
-  const Product = await Product.findByIdAndUpdate(req.body.id, req.body);
+  const product = await productDb.findByIdAndUpdate(req.body.id, req.body);
   res.status(200).json({
     success: true,
     message: "Product updates successfully",
-    Product,
+    product,
   });
 });
 
 exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
-  const Product = await Product.findByIdAndRemove(req.body.id);
+  const Product = await productDb.findByIdAndRemove(req.body.id);
   res.status(201).json({
     success: true,
     message: "Product created successfully",
@@ -36,16 +38,16 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.getProduct = catchAsyncErrors(async (req, res) => {
-  const Products = await Product.find({});
+  const products = await productDb.find({});
   await res.status(201).json({
     success: true,
     message: "Product created successfully",
-    Products,
+    products,
   });
 });
 
 exports.getProductId = catchAsyncErrors(async (req, res) => {
-  const Products = await Product.findById(req.params.id);
+  const Products = await productDb.findById(req.params.id);
   await res.status(201).json({
     success: true,
     message: "Product created successfully",
