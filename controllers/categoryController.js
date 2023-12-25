@@ -27,7 +27,7 @@ exports.updateCategory = catchAsyncErrors(async (req, res, next) => {
 
   exports.deleteCategory = catchAsyncErrors(async (req, res, next) => {
     const {id} = req.body;
-    const category = categoryDb.findByIdAndDelete(id)
+    const category = await categoryDb.findByIdAndDelete(id)
     res.status(201).json({
       success: true,
       message: "News deleted successfully",
