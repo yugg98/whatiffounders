@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.route('/category/create').post(isAuthenticatedUser,createCategory)
 router.route('/category/get').get(getCategory)
-router.route('/category/update').get(isAuthenticatedUser,updateCategory)
-router.route('/category/delete').get(isAuthenticatedUser,deleteCategory)
+router.route('/category/update').post(isAuthenticatedUser,updateCategory)
+router.route('/category/delete').post(isAuthenticatedUser,deleteCategory)
 
 module.exports = router;
