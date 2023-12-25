@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const connectDatabase = () => {
 // 
   mongoose
-    .connect('mongodb+srv://whatiffounders:WoQbRTJTbQ7asdfV@whatiffounder.6de9j9y.mongodb.net/?retryWrites=true&w=majority', {
+    .connect('mongodb+srv://whatiffounders:WoQbRTJTbQ7asdfV@whatiffounder.6de9j9y.mongodb.net/wif?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

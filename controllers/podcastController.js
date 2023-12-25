@@ -2,7 +2,7 @@ const Podcast = require("../models/podcastReccomendation.model");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 exports.createPodcast = catchAsyncErrors(async (req, res, next) => {
-  const {title, description,podcastLink,imageLink,category,isFeatured} = req.body;
+  const {title, description,podcastLink,imageLink,category,isFeatured,duration} = req.body;
   const podcast = await Podcast.create({
     title,
     description,
@@ -10,6 +10,7 @@ exports.createPodcast = catchAsyncErrors(async (req, res, next) => {
     imageLink,
     category,
     isFeatured,
+    duration
   });
   res.status(201).json({
     success: true,

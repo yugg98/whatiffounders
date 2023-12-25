@@ -13,6 +13,10 @@ const podcastReccomendation = new mongoose.Schema({
         minLenght: 10,
         required: true,
     },
+    duration:{
+        type:String,
+        required:true
+    },
     podcastLink : {
         type:"String",
         required: true,
