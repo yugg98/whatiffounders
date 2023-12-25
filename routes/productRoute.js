@@ -8,6 +8,6 @@ router.route('/product/create').post(isAuthenticatedUser,createProduct)
 router.route('/product/delete').delete(isAuthenticatedUser,deleteProduct)
 router.route('/product/get').get(getProduct)
 router.route('/product/update').put(isAuthenticatedUser,updateProduct)
-router.route('/podcast/get/:id').get(getProductId)
+router.route('/product/get/:id').get(getProductId)
 
 module.exports = router;

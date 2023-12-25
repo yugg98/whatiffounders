@@ -7,7 +7,7 @@ const products = new mongoose.Schema({
     require: true,
     min: [5, "Name must contain at least 5 letter"],
   },
-  founders: {
+  founder: {
     name: String,
     avatar: String,
     designation: String,

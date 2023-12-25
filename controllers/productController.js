@@ -2,7 +2,7 @@ const productDb = require("../models/product.model");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
-  const {name, description,productLink,imageLink,category,isFeatured,isInTopList} = req.body;
+  const {name,foundername,founderavatar, description,productLink,imageLink,category,isFeatured,isInTopList} = req.body;
   const Product = await productDb.create({
     name,
     description,
@@ -10,7 +10,11 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
     imageLink,
     category,
     isFeatured,
-    isInTopList
+    isInTopList,
+    founder:{
+      name:foundername,
+      avatar:founderavatar
+    }
   });
   res.status(201).json({
     success: true,
@@ -47,10 +51,10 @@ exports.getProduct = catchAsyncErrors(async (req, res) => {
 });
 
 exports.getProductId = catchAsyncErrors(async (req, res) => {
-  const Products = await productDb.findById(req.params.id);
+  const products = await productDb.findById(req.params.id);
   await res.status(201).json({
     success: true,
     message: "Product created successfully",
-    Products,
+    products,
   });
 });
