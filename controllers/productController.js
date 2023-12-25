@@ -24,6 +24,10 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
+  req.body.founder = {
+    name:req.body.foundername,
+    avatar:req.body.founderavatar
+  }
   const product = await productDb.findByIdAndUpdate(req.body.id, req.body);
   res.status(200).json({
     success: true,
