@@ -2,19 +2,20 @@ const productDb = require("../models/product.model");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
-  const {name,foundername,founderavatar, description,productLink,imageLink,category,isFeatured,isInTopList} = req.body;
+  const {name,foundername,logo,founderavatar, description,productLink,imageLink,category,isFeatured,isInTopList} = req.body;
   const Product = await productDb.create({
     name,
     description,
     productLink,
-    imageLink,
+    imageLinkw,
     category,
     isFeatured,
     isInTopList,
     founder:{
       name:foundername,
       avatar:founderavatar
-    }
+    },
+    logo
   });
   res.status(201).json({
     success: true,

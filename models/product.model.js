@@ -15,7 +15,7 @@ const products = new mongoose.Schema({
     xLink: String,
     tagline: String,
   },
-  productImage: {
+  imageLink: {
     type: String,
   },
   description: {
@@ -42,6 +42,10 @@ const products = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  logo:{
+    type:String,
+    required:true
+  }
 });
 
 module.exports = mongoose.model("products", products);
