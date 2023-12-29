@@ -41,3 +41,10 @@ exports.updateCategory = catchAsyncErrors(async (req, res, next) => {
       category,
     });
   });
+  exports.getCategoryById = catchAsyncErrors(async (req, res, next) => {
+    const category = await categoryDb.findById(req.params.id)
+    res.status(201).json({
+      success: true,
+      category,
+    });
+  });
