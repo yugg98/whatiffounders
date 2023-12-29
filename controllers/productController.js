@@ -7,7 +7,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
     name,
     description,
     productLink,
-    imageLinkw,
+    imageLink,
     category,
     isFeatured,
     isInTopList,
