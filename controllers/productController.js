@@ -47,7 +47,7 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.getProduct = catchAsyncErrors(async (req, res) => {
-  const products = await productDb.find({});
+  const products = await productDb.find({}).sort({createdAt:-1});
   await res.status(201).json({
     success: true,
     message: "Product created successfully",

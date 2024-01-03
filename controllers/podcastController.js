@@ -38,7 +38,7 @@ exports.deletePodcast = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.getPodcast = catchAsyncErrors(async (req, res) => {
-  const podcasts = await Podcast.find({});
+  const podcasts = await Podcast.find({}).sort({createdAt:-1});
   await res.status(201).json({
     success: true,
     message: "Podcast created successfully",
