@@ -1,4 +1,4 @@
-const contact = require("../models/contactus.model");
+const contact = require("../models/contact.model");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 exports.contactus = catchAsyncErrors(async (req, res, next) => {
