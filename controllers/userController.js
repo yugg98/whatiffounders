@@ -30,13 +30,13 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
   
     // Generate login token
     const loginToken = user.getLoginToken();
-    const loginTokenUrl = `http://localhost:3000/auth/token/${loginToken}`;
+    const loginTokenUrl = `https://whatiffounders.com/auth/token/${loginToken}`;
     console.log(loginTokenUrl)
     // Send token via email
     const { data, error } = await resend.emails.send({
-      from: "Acme <onboarding@resend.dev>",
+      from: "<support@whatiffoudners.com>",
       to: [user.email],
-      subject: "Hello World",
+      subject: "Verification link for you",
       html: `<a href="${loginTokenUrl}">Click Here</a>`,
     });
   
