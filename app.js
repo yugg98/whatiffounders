@@ -21,6 +21,7 @@ const categoryRoute = require("./routes/categoryRoute");
 const eventRoute = require("./routes/eventsRoute");
 const homeRoute = require("./routes/homeRoute");
 const infoRoute = require("./routes/infoRoute");
+const userRoute = require("./routes/userRoute");
 
 app.use("/api/v1", podcastReccomendationRoute);
 app.use("/api/v1", newsRoute);
@@ -29,6 +30,8 @@ app.use("/api/v1", productRoute);
 app.use("/api/v1", eventRoute);
 app.use("/api/v1", homeRoute);
 app.use("/api/v1", infoRoute);
+app.use("/api/v1", userRoute);
+
 
 app.use(express.static(path.join(__dirname, "../client/out")));
 
