@@ -34,12 +34,12 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
     console.log(loginTokenUrl)
     // Send token via email
     const { data, error } = await resend.emails.send({
-      from: "<support@whatiffoudners.com>",
+      from: "Yug <support@whatiffounders.com>",
       to: [user.email],
       subject: "Verification link for you",
       html: `<a href="${loginTokenUrl}">Click Here</a>`,
     });
-  
+    console.log(data)
     user.loginToken = loginToken;
     user.loginTokenExpire = Date.now() + 3600000; // 1 hour from now
     user.tokenRequestCount = 1;
@@ -74,33 +74,7 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
   });
   
 
-exports.resendPasswordToken = catchAsyncErrors(async (req, res, next) => {
-    const { email } = req.body;
-    const user = await userModel.findOne({ email });
 
-    if (!user) {
-        return res.status(404).json({ message: "User not found" });
-    }
-
-    // Check if the user has exceeded the limit of token requests
-    if (user.tokenRequestCount >= 3 && user.lastTokenRequestDate > Date.now() - 24 * 60 * 60 * 1000) {
-        return res.status(429).json({ message: "Token request limit exceeded. Please try again later." });
-    }
-
-    // Reset the count if it's been more than 24 hours since the last request
-    if (user.lastTokenRequestDate < Date.now() - 24 * 60 * 60 * 1000) {
-        user.tokenRequestCount = 0;
-    }
-
-    // Generate new token and update user
-    const newToken = generateNewToken(); // Implement this function based on your token generation logic
-    user.loginToken = newToken;
-    user.loginTokenExpire = Date.now() + 3600000; // 1 hour from now
-    user.tokenRequestCount += 1;
-    user.lastTokenRequestDate = Date.now();
-    await user.save();
-    res.status(200).json({ message: "New token sent successfully." });
-});
 exports.googleLogin = catchAsyncErrors(async (req, res, next) => {
     console.log(req.body)
     const { account } = req.body;
